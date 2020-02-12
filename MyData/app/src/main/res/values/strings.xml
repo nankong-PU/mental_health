@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">MyData</string>
+    <string name="action_settings">Settings</string>
+    <string name="top_bar">Collect Data</string>
+    <string name="usage">Collect App Usage</string>
+    <string name="ans0">Not At All</string>
+    <string name="ans1">Several Days</string>
+    <string name="ans2">More Than Half The Days</string>
+    <string name="ans3">Nearly Every Day</string>
+    <string name="q1">Little interest or pleasure in doing things</string>
+    <string name="q2">Feeling down, depressed, or hopeless</string>
+    <string name="q3">Trouble falling or staying asleep, or sleeping too much</string>
+    <string name="q4">Feeling tired or having little energy</string>
+    <string name="q5">Poor Appetite or overeating</string>
+    <string name="q6">Feeling bad about yourself, or that you are a failure, or have let yourself or your family down</string>
+    <string name="q7">Trouble concentrating on things, such as reading the newspaper or watching television</string>
+    <string name="q8">Moving or speaking so slowly that other people could have noticed. Or the opposite - being so fidgety or restless that you have been moving around a lot more than usual</string>
+    <string name="prompt">How often during the last 2 weeks, were you bothered by:</string>
+    <string name="doSurvey">Do the survey</string>
+</resources>
