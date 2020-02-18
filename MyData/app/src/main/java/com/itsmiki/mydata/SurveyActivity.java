@@ -39,9 +39,9 @@ public class SurveyActivity extends AppCompatActivity {
             disable();
             write();
         } else {
+            progress++;
             textView.setText(questionIds[progress]);
             progBar.setProgress(progress+1);
-            progress++;
         }
     }
     public void ans1L(View view){
@@ -50,9 +50,9 @@ public class SurveyActivity extends AppCompatActivity {
             disable();
             write();
         } else {
+            progress++;
             textView.setText(questionIds[progress]);
             progBar.setProgress(progress+1);
-            progress++;
         }
     }
     public void ans2L(View view){
@@ -61,9 +61,9 @@ public class SurveyActivity extends AppCompatActivity {
             disable();
             write();
         } else {
+            progress++;
             textView.setText(questionIds[progress]);
             progBar.setProgress(progress+1);
-            progress++;
         }
     }
     public void ans3L(View view){
@@ -72,9 +72,9 @@ public class SurveyActivity extends AppCompatActivity {
             disable();
             write();
         } else {
+            progress++;
             textView.setText(questionIds[progress]);
             progBar.setProgress(progress+1);
-            progress++;
         }
     }
     private void write(){
