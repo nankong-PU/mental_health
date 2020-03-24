@@ -16,5 +16,6 @@
     <string name="q7">Trouble concentrating on things, such as reading the newspaper or watching television</string>
     <string name="q8">Moving or speaking so slowly that other people could have noticed. Or the opposite - being so fidgety or restless that you have been moving around a lot more than usual</string>
     <string name="prompt">How often during the last 2 weeks, were you bothered by:</string>
-    <string name="doSurvey">Do the survey</string>
+    <string name="doSurvey">Take the Survey</string>
+    <string name="sendData">Send my data to the database</string>
 </resources>

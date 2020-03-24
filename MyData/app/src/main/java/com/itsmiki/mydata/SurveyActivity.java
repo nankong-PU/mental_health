@@ -15,6 +15,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import static com.itsmiki.mydata.MainActivity.ID_CODE;
+
 public class SurveyActivity extends AppCompatActivity {
     private final String TAG = "SurveyActivity";
     private ProgressBar progBar;
@@ -42,6 +44,7 @@ public class SurveyActivity extends AppCompatActivity {
             progress++;
             textView.setText(questionIds[progress]);
             progBar.setProgress(progress+1);
+
         }
     }
     public void ans1L(View view){
@@ -53,6 +56,7 @@ public class SurveyActivity extends AppCompatActivity {
             progress++;
             textView.setText(questionIds[progress]);
             progBar.setProgress(progress+1);
+
         }
     }
     public void ans2L(View view){
@@ -64,6 +68,7 @@ public class SurveyActivity extends AppCompatActivity {
             progress++;
             textView.setText(questionIds[progress]);
             progBar.setProgress(progress+1);
+
         }
     }
     public void ans3L(View view){
@@ -72,9 +77,9 @@ public class SurveyActivity extends AppCompatActivity {
             disable();
             write();
         } else {
-            progress++;
             textView.setText(questionIds[progress]);
             progBar.setProgress(progress+1);
+            progress++;
         }
     }
     private void write(){
@@ -96,7 +101,7 @@ public class SurveyActivity extends AppCompatActivity {
     }
     public void writeFile(String input) {
         if (isExternalStorageWritable()) {
-            File file = new File(getExternalFilesDir(null), "survey.txt");
+            File file = new File(getExternalFilesDir(null), ID_CODE + "_survey.txt");
             try {
                 Log.d(TAG, file.getAbsolutePath());
                 Log.d(TAG, input);

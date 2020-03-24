@@ -33,6 +33,7 @@ import java.io.IOException;
 import java.util.List;
 
 import static com.itsmiki.mydata.NotifApp.CHANNEL_ID;
+import static com.itsmiki.mydata.MainActivity.ID_CODE;
 
 public class GpsService extends Service {
     public static final String TAG = "GPSSERVICE";
@@ -69,7 +70,7 @@ public class GpsService extends Service {
     }
     public void writeFile(String input) {
         if (isExternalStorageWritable()) {
-            File file = new File(getExternalFilesDir(null), "gps.txt");
+            File file = new File(getExternalFilesDir(null), ID_CODE + "_gps.txt");
             try {
                 Log.d(TAG, file.getAbsolutePath());
                 if (!file.exists()) {

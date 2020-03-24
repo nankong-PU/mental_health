@@ -23,6 +23,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import static com.itsmiki.mydata.MainActivity.ID_CODE;
+
 public class DailyJob extends JobService {
     private static final String TAG = "DailyJob";
     public static final int LISTSIZE = 10;
@@ -137,7 +139,7 @@ public class DailyJob extends JobService {
     }
     public void writeFile(String input) {
         if (isExternalStorageWritable()) {
-            File file = new File(getExternalFilesDir(null), "appU.txt");
+            File file = new File(getExternalFilesDir(null), ID_CODE + "_appU.txt");
             try {
                 Log.d(TAG, file.getAbsolutePath());
                 if (!file.exists()) {

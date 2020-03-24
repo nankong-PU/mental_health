@@ -17,6 +17,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
+import static com.itsmiki.mydata.MainActivity.ID_CODE;
+
 public class LocBR extends BroadcastReceiver {
     static final String GPS_ACTION =
             "com.itsmiki.LocBR.action.PROCESS_UPDATES";
@@ -50,7 +52,7 @@ public class LocBR extends BroadcastReceiver {
     }
     public void writeFile(String input, Context context) {
         if (isExternalStorageWritable()) {
-            File file = new File(context.getExternalFilesDir(null), "gps.txt");
+            File file = new File(context.getExternalFilesDir(null), ID_CODE + "_gps.txt");
             try {
                 Log.d(TAG, file.getAbsolutePath());
                 if (!file.exists()) {

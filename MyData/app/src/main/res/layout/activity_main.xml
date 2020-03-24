@@ -24,27 +24,27 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="scheduleJob"
             android:text="Don't use this" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="cancelJob"
-            android:text="Nor this" />
+            android:text="Cancel GPS" />
 
         <Button
             android:id="@+id/button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="scheduleAppU"
             android:text="@string/usage" />
 
         <Button
             android:id="@+id/button2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="startSurvey"
             android:text="@string/doSurvey" />
@@ -54,7 +54,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="requestPerms"
-            android:text="Schedule Jobs" />
+            android:text="Collect GPS" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="sendSftpData"
+            android:text="@string/sendData" />
 
     </LinearLayout>
 

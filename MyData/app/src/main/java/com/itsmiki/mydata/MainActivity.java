@@ -33,6 +33,10 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -42,8 +46,20 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import com.jcraft.jsch.ChannelExec;
+import com.jcraft.jsch.ChannelSftp;
+import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.Session;
+
+
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "Main activity";
+    public static final String ID_CODE = "01";
+    public static final String SERVER_HOST = "upload.dash.catalyzecare.org";
+    public static final String SERVER_USERNAME = "mhas";
+    public static final String PRIVATE_KEY_LOCATION = "/Android/data/com.itsmiki.mydata/";
+    public static final String SOURCE_DIRECTORY = "/Android/data/com.itsmiki.mydata/files";
+    public static final String DESTNATION_DIRECTORY = "";
     private static final long UPDATE_INTERVAL = 1000*60*15;
     private static final long FASTEST_INTERVAL = 1000*60*10;
     private static final long MAX_WAIT_TIME = 1000*60*20;
@@ -470,5 +486,37 @@ public class MainActivity extends AppCompatActivity {
     public void startSurvey(View view) {
         Intent intent = new Intent(this, SurveyActivity.class);
         startActivity(intent);
+    }
+
+    public void sendSftpData(View view) {
+        JSch jsch = new JSch();
+        Session session = null;
+        try {
+            // set up session
+            session = jsch.getSession(SERVER_USERNAME,SERVER_HOST);
+            // use private key instead of username/password
+            session.setConfig(
+                    "PreferredAuthentications",
+                    "publickey,gssapi-with-mic,keyboard-interactive,password");
+            jsch.addIdentity(PRIVATE_KEY_LOCATION);
+            java.util.Properties config = new java.util.Properties();
+            config.put("StrictHostKeyChecking", "no");
+            session.setConfig(config);
+            session.connect();
+
+            // copy local files to host.
+            ChannelSftp channelSftp = (ChannelSftp) session.openChannel("sftp");
+            channelSftp.connect();
+            channelSftp.put(SOURCE_DIRECTORY + ID_CODE + "_gps.txt", DESTNATION_DIRECTORY);
+            channelSftp.put(SOURCE_DIRECTORY + ID_CODE + "_AppU.txt", DESTNATION_DIRECTORY);
+            channelSftp.put(SOURCE_DIRECTORY + ID_CODE + "_survey.txt", DESTNATION_DIRECTORY);
+            channelSftp.exit();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.disconnect();
+        }
+
     }
 }
