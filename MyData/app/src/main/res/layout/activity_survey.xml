@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".SurveyActivity">
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="392dp"
+        android:layout_height="819dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/Background" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -39,15 +50,21 @@
                 android:id="@+id/promptTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/Question1"
                 android:text="@string/prompt"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
+
+                android:textColor="@android:color/white"
                 android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/questionTV"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/Question1"
                 android:text="@string/q1"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -61,28 +78,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="ans0L"
-                android:text="@string/ans0" />
+
+                android:background="@drawable/NotAtAll"/>
 
             <Button
                 android:id="@+id/several"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="ans1L"
-                android:text="@string/ans1" />
+
+                android:background="@drawable/SeveralDays"/>
 
             <Button
                 android:id="@+id/more"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="ans2L"
-                android:text="@string/ans2" />
+
+                android:background="@drawable/MoreThanHalf"/>
 
             <Button
                 android:id="@+id/nearly"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="ans3L"
-                android:text="@string/ans3" />
+                android:background="@drawable/NearlyEveryDay"
+
+                android:onClick="ans3L" />
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ButtonsBar" />
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
