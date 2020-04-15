@@ -83,16 +83,14 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/CoTHeader" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView13"
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="187dp"
+        android:layout_height="32dp"
+        android:background="@drawable/NewContact"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.878"
-        app:srcCompat="@drawable/NewContact" />
+        tools:layout_editor_absoluteY="653dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

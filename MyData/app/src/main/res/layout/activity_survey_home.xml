@@ -83,30 +83,25 @@
         app:srcCompat="@drawable/SurveyHead" />
 
     <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="388dp"
-        android:layout_height="113dp"
-        android:layout_marginTop="110dp"
-        android:layout_marginBottom="382dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView11"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/Beginbutton" />
-
-    <ImageView
         android:id="@+id/imageView9"
         android:layout_width="425dp"
         android:layout_height="165dp"
-        android:layout_marginTop="140dp"
         android:layout_marginBottom="173dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8"
         app:srcCompat="@drawable/Surveyhelpbutton" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="124dp"
+        android:background="@drawable/Beginbutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
