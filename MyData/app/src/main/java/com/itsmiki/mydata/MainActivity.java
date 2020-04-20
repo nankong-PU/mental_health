@@ -31,9 +31,7 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -43,11 +41,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import com.jcraft.jsch.Channel;
-import com.jcraft.jsch.ChannelSftp;
-import com.jcraft.jsch.JSch;
-import com.jcraft.jsch.JSchException;
-import com.jcraft.jsch.Session;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -81,7 +74,9 @@ public class MainActivity extends AppCompatActivity {
         mLocReq.setMaxWaitTime(MAX_WAIT_TIME);
     }
 
-    public void scheduleJob(View view) {
+//I THINK WE DON'T NEED THIS FUNCTION BUT LEFT IT COMMENTED IN CASE IM WRONG
+
+    /*public void scheduleJob(View view) {
         if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
                 && ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) == PackageManager.PERMISSION_GRANTED
                 && ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
@@ -118,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
             requestStorage();
             requestUsage();
         }
-    }
+    }*/
 
     private PendingIntent gpsPending() {
         Intent intent = new Intent(this, LocBR.class);
@@ -460,7 +455,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startStuff() {
-        Toast.makeText(this, "Jobs scheduled!", Toast.LENGTH_LONG).show();
+
+        Toast.makeText(this, "Collecting GPS", Toast.LENGTH_LONG).show();
+        scheduleNotification(); //survey reminder
+
+        //Continue starting stuff
         JobScheduler scheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
         ComponentName dailyJ = new ComponentName(this, DailyJob.class);
         JobInfo secondJob = new JobInfo.Builder(404, dailyJ)
@@ -473,7 +472,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Log.d(TAG, "Job scheduler daily failed");
         }
-        scheduleNotification();
+
         try {
             Log.i(TAG, "Starting location updates");
             mFusedLocClient.requestLocationUpdates(mLocReq, gpsPending());
@@ -488,7 +487,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendSftpData(View view) {
+        //this function needs to change from an on-click to a scheduled job at the frequency with which the data should be
+        //sent to the database. If this is determined to be more frequent than the rate at which we want to remind the user to
+        //take the survey, then scheduleNotification() needs to be scheduled on its own cadence.
+
        new SFTPconnection(this).execute();
+       //reminder to take the survey
+        scheduleNotification();
+        //re-initiate data collection
+       requestPerms(view);
+       scheduleAppU(view);
+
     }//end SFTP send data function
 
 }

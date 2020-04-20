@@ -26,12 +26,6 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="scheduleJob"
-            android:text="Don't use this" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:onClick="cancelJob"
             android:text="Cancel GPS" />
 
